@@ -1,17 +1,52 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+<!-- <ion-header>
+  <ion-navbar color="primary">
+    <ion-title>สมุดโทรศัพท์</ion-title>
+  
+  <ion-buttons end>
+    <img src="assets/img/iconyst.png" width="30px" style="display:inline-block" height="30px"/>
+  </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+ 
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อมูล เช่น ชื่อ สกุล ตำแหน่ง">></ion-searchbar> 
+
+
+  <ion-list>
+   
+          <ion-item-sliding  *ngFor="let item of countryList">
+        <ion-item item-text-wrap>
+          <ion-thumbnail item-start>
+        
+            <img *ngIf="!(item.image)" src= "assets/img/person.png" />
+            <img *ngIf="item.image" [src]= "'http://123.242.182.82/webservice/web/uploads/images/' + member.image " />
+          </ion-thumbnail>
+          
+          <h2 (click)="Viewperson(item)">{{item.position}}</h2>
+         
+          <p><strong> {{item.fullname}} </strong></p>
+        
+          <button ion-button color="light" round icon-left (click)="showConfirm(item.tel_position)">
+           <ion-icon color="danger" name="call" start></ion-icon> 
+            {{item.tel_position}}
+          </button>
+        </ion-item>      
+      </ion-item-sliding>
+    </ion-list>
+</ion-content> -->
+
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>สมุดโทรศัพท์</ion-title>
+    
+    <ion-buttons end>
+      <img src="assets/img/iconyst.png" width="30px" style="display:inline-block" height="30px"/>
+    </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+<ion-content padding>
+
 </ion-content>

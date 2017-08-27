@@ -1,17 +1,42 @@
-<ion-header>
-  <ion-navbar>
+<ion-header no-border>
+  <ion-navbar color="primary">
     <ion-title>
-      Contact
+      สมุดโทรศัพท์จังหวัดยโสธร
     </ion-title>
+    <ion-buttons end>
+      <img src="assets/img/iconyst.png" width="30px" style="display:inline-block" height="30px"/>
+    </ion-buttons>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="createTodo()"><ion-icon name="cloud-upload"></ion-icon></button>
+    </ion-buttons> -->
   </ion-navbar>
 </ion-header>
+ 
+<ion-content padding>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อมูล เช่น ชื่อ สกุล ตำแหน่ง">></ion-searchbar>
 
-<ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+ 
+    <!-- <ion-item-sliding *ngFor="let todo of todos"> -->
+        <ion-item-sliding *ngFor="let todo of filteritems">
+      <ion-item item-text-wrap>
+        <ion-thumbnail item-start (click)="Viewperson(todo)">
+        <!--  <img *ngIf="!(member.image)" src= "../assets/icon/moi.png" /> -->
+          <img *ngIf="!(todo.image)" src= "assets/img/person.png" />
+          <img *ngIf="todo.image" [src]= "'assets/img/' + todo.image " />
+        </ion-thumbnail>
+        
+        <h2 (click)="Viewperson(todo)">{{todo.position}}</h2>
+       
+        <p (click)="Viewperson(todo)"><strong> {{todo.fullname}} </strong></p>
+        <!-- <a [href]="'tel:' + member.phone_tel">{{member.phone_tel}} </a> -->
+        <button ion-button color="light" round icon-left (click)="showConfirm(todo.tel_position)">
+         <ion-icon color="danger" name="call" start></ion-icon> 
+          {{todo.tel_position}}
+        </button>
+      </ion-item>    
+    </ion-item-sliding>
+ 
+  </ion-list> 
+ 
 </ion-content>

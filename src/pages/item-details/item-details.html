@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        รายละเอียดบุคคล
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only solid (click)="launchDialer('0831257904')">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <div id="page-container">
+      <div>
+        <img *ngIf="!(person.image)" src= "assets/img/person.png" style="display:block;width:50%;height:auto;margin-left:auto;margin-right:auto;"/>
+              
+        <img *ngIf="person.image" [src]= "'http://123.242.182.82/webservice/web/uploads/images/' + person.image " style="display:block;width:50%;height:auto;margin-left:auto;margin-right:auto;"/>
+          
+       
+      </div>
+  
+    </div>
+    <ion-card>
+      <ion-list id="page-list">
+        <ion-item-divider color="light" id="page-list-item-divider">
+          ข้อมูลส่วนบุคคล
+        </ion-item-divider>
+      </ion-list> 
+    <ion-list id="page-list">
+      <ion-item color="none" id="page-list-item">
+        <ion-icon name="person" item-left></ion-icon>
+        {{person.fullname}}
+      </ion-item>
+      <ion-item color="none" id="page-list-item">
+        <ion-icon name="document" item-left></ion-icon>
+        {{person.position}}
+      </ion-item>
+      <ion-item color="none" id="page-list-item">
+        <ion-icon name="home" item-left></ion-icon>
+        {{person.department}}
+      </ion-item>
+      <ion-item-divider color="light" id="page-list-item-divider">
+        ข้อมูลการติดต่อ
+      </ion-item-divider>
+  
+      <ion-item>
+        <ion-icon name="phone-portrait" item-left></ion-icon>
+        {{person.tel_position}}
+        <button ion-button outline item-end icon-left icon-only (click)="launchDialer(person.tel_position)">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-item>
+  
+      <ion-item>
+        <ion-icon name="phone-portrait" item-left></ion-icon>
+        {{person.tel_tot}}
+        <button ion-button outline item-end icon-left icon-only (click)="launchDialer(person.tel_tot)">
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-item>
+  
+      <ion-item>
+            <ion-icon name="radio" item-left></ion-icon>
+            {{person.tel_fax}}
+            <button ion-button outline item-end icon-left icon-only (click)="launchDialer(person.tel_fax)">
+              <ion-icon name="call"></ion-icon>
+            </button>
+          </ion-item>
+      <ion-item color="none" id="page-list-item">
+        <ion-icon name="tablet-portrait" item-left></ion-icon>
+        มท. {{person.tel_moi}}
+        <ion-icon name="call" item-right></ion-icon>
+      </ion-item>
+      <ion-item color="none" id="page-list-item" >
+        <ion-icon name="mail" item-left></ion-icon>
+        {{person.email}}
+      </ion-item>
+    <!--  <button ion-button (click)="launchDialer(' person.phone_tel ')">Call 00 00 00 00</button> -->
+    <!-- <ion-item>
+      <ion-icon name="phone-portrait" item-left></ion-icon>
+      Left Icon Button
+      <button ion-button outline item-end icon-left icon-only>
+        <ion-icon name="call"></ion-icon>
+      </button>
+    </ion-item> -->
+  
+    </ion-list>
+    </ion-card>
+  </ion-content>

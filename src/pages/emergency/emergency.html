@@ -1,0 +1,50 @@
+<!--
+  Generated template for the EmergencyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+      <ion-buttons start>
+          <button ion-button  >
+              <img src="assets/img/ems.png" width="30px" style="display:inline-block" height="30px"/>
+          </button>
+        </ion-buttons>
+
+    <ion-title>เบอร์โทรฉุกเฉิน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content >
+    <!-- <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อมูล เช่น ชื่อ สกุล ตำแหน่ง">></ion-searchbar> -->
+
+    <ion-list>
+      
+        <!-- List header with buttons on each side -->
+        <ion-list-header color="danger">
+          สายด่วนจังหวัดยโสธร
+        </ion-list-header>
+    
+        <!-- Item with a thumbnail on the right -->
+        <ion-item *ngFor="let todo of todos" class="bg">
+          <ion-thumbnail item-start>
+             <!-- <img src="img/my-thumbnail.png"> -->
+             <img *ngIf="!(todo.image)" src= "assets/img/hotline.jpg" />
+             <img *ngIf="todo.image" [src]= "'assets/img/' + todo.image " />
+
+          </ion-thumbnail>
+          <h2 class="h3">{{todo.name}}</h2>
+          <p>{{todo.tel_phone}}</p>
+          <p >Hotline : <strong class="h2">{{todo.hotline}}</strong></p>
+          <button ion-button round outline  item-end color="danger" (click)="showConfirm(todo.tel_phone)"> <ion-icon name="call"></ion-icon></button>
+        </ion-item>
+
+      
+      </ion-list>
+ 
+</ion-content>

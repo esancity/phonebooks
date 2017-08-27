@@ -1,0 +1,53 @@
+page-emergency {
+
+    .masters {
+        background-color: green;
+}
+    .myview {
+        background-image: url('../assets/img/emscall.png');
+        background-position: center; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        background-repeat:no-repeat;    
+        background-size:100% auto;
+    //    opacity: 0.5;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+     //   opacity: 0.6;
+    }
+
+    .h2 {
+        color: #FF0000;
+    }
+    .h3 {
+        color: #000000;
+    }
+    .bg {
+        background-color: #FFFFFF;
+    }
+    .ion-ios-pulse-strong:before {
+        content: url('..assets/img/call.png') !important;
+      } 
+
+    
+    // .scroll-content {
+    //     background-color: #ecf0f1;
+    //     display: flex !important;
+    //     justify-content: center;
+    //   }
+   
+    //   ion-list {
+    //     width: 90%;
+    //   }
+   
+    //   ion-item-sliding {
+    //     margin-top: 20px;
+    //     border-radius: 20px;
+    //   }
+   
+    //   ion-item {
+    //     border: none !important;
+    //     font-weight: bold !important;
+    //   }
+
+}
